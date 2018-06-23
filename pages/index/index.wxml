@@ -1,0 +1,37 @@
+<view
+  class="index {{show ? 'active' : ''}}"
+  style="background-image:url({{background}});"
+>
+  <view style="background-color:{{color}}" class="cover"></view>
+  <image
+    style="display:none"
+    wx:if="{{background}}"
+    src="{{background}}"
+    bindload="onImageLoad"
+  />
+  <view class="links">
+    <navigator
+      url="/pages/posts/index"
+      bindtouchstart="onTouchStart"
+      bindtouchend="onTouchEnd"
+    >
+      文 章 <span>→</span>
+    </navigator>
+    <navigator
+      url="/pages/wallpaper/index"
+      bindtouchstart="onTouchStart"
+      bindtouchend="onTouchEnd"
+      data-num="w"
+    >
+      壁 纸 <span>→</span>
+    </navigator>
+    <navigator
+      url="/pages/about/index"
+      bindtouchstart="onTouchStart"
+      bindtouchend="onTouchEnd"
+      data-num="a"
+    >
+      关 于 <span>→</span>
+    </navigator>
+  </view>
+</view>
