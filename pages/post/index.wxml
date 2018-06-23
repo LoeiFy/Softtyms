@@ -1,0 +1,13 @@
+<wxs module="helper">
+  var unescape = function(text) {
+    return text.split(getRegExp('&.*?;', 'gi')).join('')
+  }
+  module.exports.unescape = unescape
+</wxs>
+
+<view class="post">
+  <rich-text
+    wx:if="{{post.content}}"
+    nodes="{{helper.unescape(post.content.rendered)}}"
+  />
+</view>

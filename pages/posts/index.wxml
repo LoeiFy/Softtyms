@@ -17,7 +17,7 @@
     wx:for="{{posts}}"
     wx:key="index"
     class="post"
-    url="/pages/post/{{item.id}}"
+    url="/pages/post/index?id={{item.id}}"
   >
     <view class="cover">
       <image mode="widthFix" src="{{item.thumbnail}}" />
