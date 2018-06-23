@@ -14,6 +14,7 @@
       url="/pages/posts/index"
       bindtouchstart="onTouchStart"
       bindtouchend="onTouchEnd"
+      hover-class="none"
     >
       文 章 <span>→</span>
     </navigator>
@@ -22,6 +23,7 @@
       bindtouchstart="onTouchStart"
       bindtouchend="onTouchEnd"
       data-num="w"
+      hover-class="none"
     >
       壁 纸 <span>→</span>
     </navigator>
@@ -30,6 +32,7 @@
       bindtouchstart="onTouchStart"
       bindtouchend="onTouchEnd"
       data-num="a"
+      hover-class="none"
     >
       关 于 <span>→</span>
     </navigator>

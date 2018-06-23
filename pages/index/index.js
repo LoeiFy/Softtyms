@@ -39,10 +39,10 @@ Page({
         media_type: 'image',
       },
     })
-      .then((res) => {
-        const l = res.length - 1
+      .then(({ data }) => {
+        const l = data.length - 1
         const num = Math.floor(Math.random() * (l + 1))
-        const { source_url: background } = res[num]
+        const { source_url: background } = data[num]
 
         loading()
         this.setData({ background })

@@ -1,0 +1,7 @@
+scroll-view {
+  height: 80vh;
+}
+.post {
+  height: 90vh;
+  background: grey;
+}

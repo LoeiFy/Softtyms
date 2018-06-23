@@ -1,3 +1,15 @@
+const app = () => getApp()
+
+export const store = {
+  set(key, data) {
+    app().data[key] = data
+    return Promise.resolve()
+  },
+  get(key) {
+    return app().data[key]
+  },
+}
+
 export const toast = (title) => {
   wx.showToast({
     title,

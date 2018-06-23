@@ -16,15 +16,15 @@ export default function (params) {
     }
   })
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     wx.request({
       url: `${host}/wp-json/wp/v2${url}`,
       data,
       method,
-      success({ data }) {
+      success(data) {
         loading(false)
 
-        if (data) {
+        if (data.data) {
           return resolve(data)
         }
         return toast('请求数据错误')

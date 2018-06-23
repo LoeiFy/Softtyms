@@ -1,0 +1,18 @@
+<scroll-view
+  scroll-y
+  scroll-with-animation
+  enable-back-to-top
+  bindscrolltolower="onScrollBottom"
+  bindscroll="onScroll"
+  scroll-top="{{scrollTop}}"
+>
+  <navigator
+    wx:for="{{posts}}"
+    wx:key="index"
+    class="post"
+    id="post{{item.id}}"
+  >
+    <text>{{item.title.rendered}}</text>
+    <image src="{{item.thumbnail}}" />
+  </navigator>
+</scroll-view>
