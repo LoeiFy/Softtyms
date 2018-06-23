@@ -1,3 +1,10 @@
+<wxs module="helper">
+  var unescape = function(text) {
+    return text.split(getRegExp('&.*?;', 'gi')).join('')
+  }
+  module.exports.unescape = unescape
+</wxs>
+
 <scroll-view
   scroll-y
   scroll-with-animation
@@ -10,9 +17,12 @@
     wx:for="{{posts}}"
     wx:key="index"
     class="post"
-    id="post{{item.id}}"
+    url="/pages/post/{{item.id}}"
   >
-    <text>{{item.title.rendered}}</text>
-    <image src="{{item.thumbnail}}" />
+    <view class="cover">
+      <image mode="widthFix" src="{{item.thumbnail}}" />
+      <text class="title">{{item.title.rendered}}</text>
+    </view>
+    <rich-text nodes="{{helper.unescape(item.excerpt.rendered)}}" />
   </navigator>
 </scroll-view>
