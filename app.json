@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/posts/index",
     "pages/post/index",
-    "pages/about/index"
+    "pages/about/index",
+    "pages/wallpaper/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

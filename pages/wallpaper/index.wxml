@@ -1,0 +1,17 @@
+<scroll-view
+  scroll-y
+  scroll-with-animation
+  enable-back-to-top
+  bindscrolltolower="onScrollBottom"
+  bindscroll="onScroll"
+  scroll-top="{{scrollTop}}"
+>
+  <view
+    wx:for="{{items}}"
+    wx:key="index"
+    class="item"
+  >
+    <image mode="widthFix" src="{{item.source_url}}" />
+    <navigator wx:if="{{item.post}}" url="/pages/post/index?id={{item.post}}" />
+  </view>
+</scroll-view>

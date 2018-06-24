@@ -53,7 +53,8 @@ scroll-view {
   display: block;
 }
 .rate {
+  transition: all .1s linear;
   height: 100vh;
   position: absolute;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #efefef;
 }
