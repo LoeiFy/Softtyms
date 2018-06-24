@@ -1,16 +1,24 @@
 <view wx:if="{{post.id}}" class="post">
-  <view class="background" style="background-image:url({{post.thumbnail}})"></view>
-  <text class="title">{{post.title.rendered}}</text>
-  <view class="info">
-    <text>时间：{{post.date}}</text>
-    <text>字数: {{post.content.total}}</text>
-    <text>时间: {{post.content.time}}</text>
-  </view>
-  <view class="audio">
-    <button bindtap="onTap">play</button>
-    <text>{{current}} / {{total}}</text>
-  </view>
-  <view class="content">
-    <rich-text nodes="{{post.content.rendered}}" />
+  <view style="width:{{current/total*100}}%" class="rate"></view>
+  <scroll-view scroll-y>
+    <text class="title">{{post.title.rendered}}</text>
+    <view class="info">
+      <view class="time">
+        <image src="../../image/time.png" />
+        {{post.date}}
+      </view>
+      <view class="tip">
+        <image src="../../image/tip.png" />
+        {{post.content.total}} 字 {{post.content.time}} 分钟
+      </view>
+    </view>
+    <view class="content">
+      <import src="../../helper/html2wxml/html2wxml.wxml"/>
+      <template is="html2Wxml" data="{{innerHTML}}"></template>
+    </view>
+  </scroll-view>
+  <view wx:if="{{post.audio}}" class="button" bindtap="onTap">
+    <image wx:if="{{status === 'play'}}" src="../../image/pause.png" />
+    <image wx:if="{{status === 'pause'}}" src="../../image/play.png" />
   </view>
 </view>

@@ -1,0 +1,59 @@
+@import "../../helper/html2wxml/html2wxml.wxss";
+
+.title {
+  color: #333;
+  font-size: 20px;
+  margin: 0 30px 20px;
+  text-align: center;
+  line-height: 1.5;
+  display: block;
+  padding-top: 50px;
+}
+.info {
+  color: #9b9b9b;
+  font-size: 14px;
+  display: flex;
+  line-height: 1;
+  justify-content: center;
+}
+.info image {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+.time {
+  margin-right: 30px;
+}
+.content {
+  margin: 50px 20px;
+}
+scroll-view {
+  height: 100vh;
+  position: relative;
+}
+.post {
+  position: relative;
+}
+.button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 42px;
+  height: 42px;
+  padding: 1px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, .6);
+  border-radius: 50%;
+}
+.button image {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.rate {
+  height: 100vh;
+  position: absolute;
+  border-right: 1px solid #eee;
+}

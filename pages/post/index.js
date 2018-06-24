@@ -1,5 +1,6 @@
 import { store, setState, Audio } from '../../helper/wx'
 import request from '../../helper/request'
+import { html2json } from '../../helper/html2wxml/html2json'
 
 const clearText = (text) => {
   const audio = /<audio[^>].*>[\s\S]+<\/audio>/g
@@ -29,7 +30,9 @@ Page({
   data: {
     post: {},
     current: 0,
-    total: 0,
+    total: 1,
+    innerHTML: '',
+    status: 'pause',
   },
 
   setState,
@@ -44,11 +47,26 @@ Page({
     }
 
     this.audio = new Audio(src)
-    this.audio.onPlay = (current, total) => this.setState({ current, total })
+    this.audio.onPlay = (current, total) => {
+      this.setState({
+        current,
+        total,
+      })
+      if (current === total) {
+        this.setState({ status: 'pause' })
+      }
+    }
   },
 
   onTap() {
-    this.audio.play()
+    const { status } = this.data
+    if (status === 'pause') {
+      this.audio.play()
+      this.setState({ status: 'play' })
+    } else {
+      this.audio.pause()
+      this.setState({ status: 'pause' })
+    }
   },
 
   onUnload() {
@@ -61,18 +79,24 @@ Page({
     const posts = store.get('post')
 
     if (posts[id]) {
-      this.setState({ post: posts[id] })
+      this.setState({ post: posts[id], innerHTML: posts[id].innerHTML })
       this.initAudio()
+      wx.setNavigationBarTitle({ title: posts[id].title.rendered })
       return
     }
 
     request({ url: `/posts/${id}` })
       .then(({ data: post }) => {
         const { rendered } = post.content
+
+        wx.setNavigationBarTitle({ title: post.title.rendered })
+
         post.content.rendered = clearText(rendered)
         post.content = { ...word(rendered), ...post.content }
         post.date = post.date.split('T')[0]
-        return this.setState({ post })
+        post.innerHTML = html2json(post.content.rendered).child
+
+        return this.setState({ post, innerHTML: post.innerHTML })
       })
       .then(({ post }) => {
         this.initAudio()
