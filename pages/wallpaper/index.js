@@ -27,7 +27,11 @@ Page({
     this.loading = true
     this.page += 1
 
-    request({ url: '/media', data: { media_type: 'image', page: this.page } })
+    request({ url: '/media', data: {
+      media_type: 'image',
+      page: this.page,
+      per_page: 20,
+    }})
       .then(({ data }) => this.setState({ items: current.concat(data) }))
       .then(({ items }) => store.set('wallpapers', items))
       .then(() => store.set('wp_page', this.page))
@@ -61,7 +65,7 @@ Page({
       return
     }
 
-    request({ url: '/media', data: { media_type: 'image' } })
+    request({ url: '/media', data: { media_type: 'image', per_page: 20 } })
       .then(({ data: items, header }) => {
         this.totalPage = Number(header['X-WP-TotalPages'])
         return this.setState({ items })

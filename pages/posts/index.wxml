@@ -2,7 +2,11 @@
   var unescape = function(text) {
     return text.split(getRegExp('&.*?;', 'gi')).join('')
   }
+  var timer = function(text) {
+    return text.split('T')[0]
+  }
   module.exports.unescape = unescape
+  module.exports.timer = timer
 </wxs>
 
 <scroll-view
@@ -23,6 +27,7 @@
       <image mode="widthFix" src="{{item.thumbnail}}" />
       <text class="title">{{item.title.rendered}}</text>
     </view>
+    <text class="time">{{helper.timer(item.date)}}</text>
     <view class="excerpt">
       <rich-text nodes="{{helper.unescape(item.excerpt.rendered)}}" />
     </view>
