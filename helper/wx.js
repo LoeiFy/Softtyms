@@ -33,3 +33,34 @@ export const setState = function(data) {
   this.setData(data)
   return Promise.resolve(data)
 }
+
+export class Audio {
+  constructor(src) {
+    this.playCall = () => null
+    this.ctx = wx.createInnerAudioContext()
+    this.ctx.autoplay = false
+    this.ctx.src = src
+    this.ctx.onTimeUpdate(() => this.playCall(this.ctx.currentTime, this.ctx.duration))
+    this.ctx.onPlay(() => null)
+  }
+
+  set onPlay(fn) {
+    this.playCall = fn
+  }
+
+  play() {
+    this.ctx.play()
+  }
+
+  pause() {
+    this.ctx.pause()
+  }
+
+  stop() {
+    this.ctx.stop()
+  }
+
+  destroy() {
+    this.ctx.destroy()
+  }
+}

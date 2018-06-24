@@ -23,6 +23,8 @@
       <image mode="widthFix" src="{{item.thumbnail}}" />
       <text class="title">{{item.title.rendered}}</text>
     </view>
-    <rich-text nodes="{{helper.unescape(item.excerpt.rendered)}}" />
+    <view class="excerpt">
+      <rich-text nodes="{{helper.unescape(item.excerpt.rendered)}}" />
+    </view>
   </navigator>
 </scroll-view>

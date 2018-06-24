@@ -1,13 +1,16 @@
-<wxs module="helper">
-  var unescape = function(text) {
-    return text.split(getRegExp('&.*?;', 'gi')).join('')
-  }
-  module.exports.unescape = unescape
-</wxs>
-
-<view class="post">
-  <rich-text
-    wx:if="{{post.content}}"
-    nodes="{{helper.unescape(post.content.rendered)}}"
-  />
+<view wx:if="{{post.id}}" class="post">
+  <view class="background" style="background-image:url({{post.thumbnail}})"></view>
+  <text class="title">{{post.title.rendered}}</text>
+  <view class="info">
+    <text>时间：{{post.date}}</text>
+    <text>字数: {{post.content.total}}</text>
+    <text>时间: {{post.content.time}}</text>
+  </view>
+  <view class="audio">
+    <button bindtap="onTap">play</button>
+    <text>{{current}} / {{total}}</text>
+  </view>
+  <view class="content">
+    <rich-text nodes="{{post.content.rendered}}" />
+  </view>
 </view>

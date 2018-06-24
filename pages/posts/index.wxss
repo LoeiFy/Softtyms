@@ -2,13 +2,14 @@ scroll-view {
   height: 100vh;
 }
 .post {
-  margin: 10px 10px 30px;
-  border-bottom: 1px solid #eaebee;
+  margin: 0 0 30px;
 }
 .cover {
   position: relative;
   overflow: hidden;
-  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cover::before,
 .cover::after {
@@ -39,12 +40,11 @@ image {
   position: absolute;
   color: rgba(255, 255, 255, .9);
   font-size: 16px;
-  left: 30px;
   line-height: 1.4;
-  bottom: 30px;
-  right: 30px;
+  box-sizing: border-box;
+  padding: 0 40px;
 }
-rich-text {
+.excerpt {
   color: #858484;
   font-size: 14px;
   padding: 20px;
