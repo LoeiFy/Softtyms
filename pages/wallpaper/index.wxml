@@ -1,3 +1,15 @@
+<wxs module="helper">
+  var oddEven = function(items, type) {
+    return items.filter(function (item, i) {
+      if (type === 'odd') {
+        return i % 2 === 0
+      }
+      return i % 2 !== 0
+    })
+  }
+  module.exports.oddEven = oddEven
+</wxs>
+
 <scroll-view
   scroll-y
   scroll-with-animation
@@ -6,12 +18,26 @@
   bindscroll="onScroll"
   scroll-top="{{scrollTop}}"
 >
-  <view
-    wx:for="{{items}}"
-    wx:key="index"
-    class="item"
-  >
-    <image mode="widthFix" src="{{item.source_url}}" />
-    <navigator wx:if="{{item.post}}" url="/pages/post/index?id={{item.post}}" />
+  <view class="main">
+    <view>
+      <image
+        wx:for="{{helper.oddEven(items, 'odd')}}"
+        wx:key="index"
+        mode="widthFix"
+        src="{{item.source_url}}"
+        data-src="{{item.source_url}}"
+        bindtap="onTap"
+      />
+    </view>
+    <view>
+      <image
+        wx:for="{{helper.oddEven(items, 'even')}}"
+        wx:key="index"
+        mode="widthFix"
+        src="{{item.source_url}}"
+        data-src="{{item.source_url}}"
+        bindtap="onTap"
+      />
+    </view>
   </view>
 </scroll-view>

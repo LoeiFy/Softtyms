@@ -68,4 +68,9 @@ Page({
       })
       .then(({ items }) => store.set('wallpapers', items))
   },
+
+  onTap({ target }) {
+    const { src } = target.dataset
+    wx.previewImage({ current: '', urls: [src] })
+  },
 })

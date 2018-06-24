@@ -1,3 +1,19 @@
 scroll-view {
   height: 100vh;
+  padding: 3px 3px 0;
+  box-sizing: border-box;
+}
+.main {
+  display: flex;
+}
+.main view {
+  flex: 1;
+}
+.main view:first-child {
+  margin-right: 3px;
+}
+image {
+  width: 100%;
+  display: block;
+  margin-bottom: 3px;
 }

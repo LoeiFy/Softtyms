@@ -22,7 +22,7 @@ export const toast = (title) => {
 export const loading = (show = true) => {
   if (show) {
     return wx.showLoading({
-      title: '加载中...',
+      title: '',
       mask: true,
     })
   }
