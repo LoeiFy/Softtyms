@@ -13,7 +13,7 @@ Page({
 
   loading: false,
 
-  totalPage: 1,
+  totalPage: 0,
 
   timer: null,
 

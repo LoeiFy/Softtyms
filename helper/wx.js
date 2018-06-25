@@ -39,6 +39,7 @@ export class Audio {
     this.playCall = () => null
     this.ctx = wx.createInnerAudioContext()
     this.ctx.autoplay = false
+    this.ctx.obeyMuteSwitch	= false
     this.ctx.src = src
     this.ctx.onTimeUpdate(() => this.playCall(this.ctx.currentTime, this.ctx.duration))
     this.ctx.onPlay(() => null)

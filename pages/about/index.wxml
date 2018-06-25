@@ -18,6 +18,10 @@
     如果遇到什么问题或者建议，可以直接联系微信: LoeiFy
   </view>
   <view class="gift">
-    <image mode="widthFix" src="../../image/1077037315.png" />
+    <image
+      bindtap="onTap"
+      mode="widthFix"
+      src="{{src}}"
+    />
   </view>
 </view>

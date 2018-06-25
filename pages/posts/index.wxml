@@ -1,6 +1,12 @@
 <wxs module="helper">
   var unescape = function(text) {
-    return text.split(getRegExp('&.*?;', 'gi')).join('')
+    return text
+      .split('<p>')
+      .join('')
+      .split('</p>')
+      .join('')
+      .split('[&hellip;]')
+      .join('')
   }
   var timer = function(text) {
     return text.split('T')[0]
@@ -11,8 +17,8 @@
 
 <scroll-view
   scroll-y
-  scroll-with-animation
   enable-back-to-top
+  scroll-with-animation
   bindscrolltolower="onScrollBottom"
   bindscroll="onScroll"
   scroll-top="{{scrollTop}}"
@@ -24,12 +30,10 @@
     url="/pages/post/index?id={{item.id}}"
   >
     <view class="cover">
-      <image mode="widthFix" src="{{item.thumbnail}}" />
+      <image mode="widthFix" src="https://isujin.com/wp-content/themes/Diaspora/timthumb/timthumb.php?src={{item.thumbnail}}" />
       <text class="title">{{item.title.rendered}}</text>
     </view>
     <text class="time">{{helper.timer(item.date)}}</text>
-    <view class="excerpt">
-      <rich-text nodes="{{helper.unescape(item.excerpt.rendered)}}" />
-    </view>
+    <view class="excerpt">{{helper.unescape(item.excerpt.rendered)}}</view>
   </navigator>
 </scroll-view>

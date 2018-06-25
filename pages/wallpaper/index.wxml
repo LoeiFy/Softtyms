@@ -2,9 +2,9 @@
   var oddEven = function(items, type) {
     return items.filter(function (item, i) {
       if (type === 'odd') {
-        return i % 2 === 0
+        return i % 2 === 0 && item.post
       }
-      return i % 2 !== 0
+      return i % 2 !== 0 && item.post
     })
   }
   module.exports.oddEven = oddEven
@@ -24,8 +24,8 @@
         wx:for="{{helper.oddEven(items, 'odd')}}"
         wx:key="index"
         mode="widthFix"
-        src="{{item.source_url}}"
-        data-src="{{item.source_url}}"
+        src="{{item.media_details.sizes.thumbnail.source_url}}"
+        data-src="{{item.media_details.sizes.full.source_url}}"
         bindtap="onTap"
       />
     </view>
@@ -34,8 +34,8 @@
         wx:for="{{helper.oddEven(items, 'even')}}"
         wx:key="index"
         mode="widthFix"
-        src="{{item.source_url}}"
-        data-src="{{item.source_url}}"
+        src="{{item.media_details.sizes.thumbnail.source_url}}"
+        data-src="{{item.media_details.sizes.full.source_url}}"
         bindtap="onTap"
       />
     </view>

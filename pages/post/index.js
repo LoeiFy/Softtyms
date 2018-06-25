@@ -7,12 +7,14 @@ const clearText = (text) => {
   const img = /<img.*?src="http:\/\/guo\.lu\/wp-content\/uploads\/2014\/downloading\.png".*?\/>/g
   const script = /<!--\[if lt IE 9]>.*?<!\[endif]-->/g
   const entity = /&.*?;/g
+  const br = /<br \/>/g
 
   return text
     .replace(audio, '')
     .replace(img, '')
     .replace(script, '')
     .replace(entity, '')
+    .replace(br, '<p>')
 }
 
 const word = (text) => {

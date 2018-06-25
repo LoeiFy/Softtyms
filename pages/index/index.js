@@ -42,7 +42,7 @@ Page({
       .then(({ data }) => {
         const l = data.length - 1
         const num = Math.floor(Math.random() * (l + 1))
-        const { source_url: background } = data[num]
+        const { source_url: background } = data[num].media_details.sizes.full
 
         loading()
         this.setData({ background })

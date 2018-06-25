@@ -2,7 +2,7 @@
 
 .title {
   color: #333;
-  font-size: 20px;
+  font-size: 24px;
   margin: 0 30px 20px;
   text-align: center;
   line-height: 1.5;
@@ -11,23 +11,27 @@
 }
 .info {
   color: #9b9b9b;
-  font-size: 14px;
   display: flex;
   line-height: 1;
   justify-content: center;
 }
 .info image {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   display: inline-block;
   vertical-align: middle;
   margin-top: -3px;
 }
 .time {
   margin-right: 30px;
+  font-size: 13px;
+}
+.tip {
+  font-size: 13px;
 }
 .content {
-  margin: 50px 20px;
+  margin: 50px 20px 0;
+  padding-bottom: 50px;
 }
 scroll-view {
   height: 100vh;
