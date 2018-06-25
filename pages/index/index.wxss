@@ -1,6 +1,7 @@
 .index {
   height: 100vh;
   background-size: cover;
+  background-position: center;
   visibility: hidden;
   position: relative;
 }

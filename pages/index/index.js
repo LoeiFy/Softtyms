@@ -1,5 +1,5 @@
 import request from '../../helper/request'
-import { loading } from '../../helper/wx'
+import { loading, store } from '../../helper/wx'
 
 Page({
   data: {
@@ -31,7 +31,7 @@ Page({
     this.setData({ color: 'rgba(0, 0, 0, .2)' })
   },
 
-  onShow() {
+  onLoad() {
     request({
       url: '/media',
       data: {
@@ -40,6 +40,8 @@ Page({
       },
     })
       .then(({ data }) => {
+        data = data.filter(({ post }) => post)
+
         const l = data.length - 1
         const num = Math.floor(Math.random() * (l + 1))
         const { source_url: background } = data[num].media_details.sizes.full
