@@ -35,6 +35,7 @@ Page({
     total: 1,
     innerHTML: '',
     status: 'pause',
+    audioReady: false,
   },
 
   setState,
@@ -58,10 +59,16 @@ Page({
         this.setState({ status: 'pause' })
       }
     }
+    this.audio.onReady = () => this.setState({ audioReady: true })
   },
 
   onTap() {
-    const { status } = this.data
+    const { status, audioReady } = this.data
+
+    if (!audioReady) {
+      return
+    }
+
     if (status === 'pause') {
       this.audio.play()
       this.setState({ status: 'play' })

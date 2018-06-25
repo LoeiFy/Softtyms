@@ -37,20 +37,32 @@ export const setState = function(data) {
 export class Audio {
   constructor(src) {
     this.playCall = () => null
+    this.canPlay = () => null
     this.ctx = wx.createInnerAudioContext()
     this.ctx.autoplay = false
     this.ctx.obeyMuteSwitch	= false
-    this.ctx.src = src
+    this.ctx.src = encodeURI(src)
     this.ctx.onTimeUpdate(() => this.playCall(this.ctx.currentTime, this.ctx.duration))
     this.ctx.onPlay(() => null)
+    this.ctx.onCanplay(() => this.canPlay())
+    this.ctx.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+    })
   }
 
   set onPlay(fn) {
     this.playCall = fn
   }
 
+  set onReady(fn) {
+    this.canPlay = fn
+  }
+
   play() {
-    this.ctx.play()
+    if (this.canPlay) {
+      this.ctx.play()
+    }
   }
 
   pause() {

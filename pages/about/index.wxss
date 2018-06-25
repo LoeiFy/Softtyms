@@ -1,0 +1,25 @@
+.about {
+  padding: 30px 30px 70px;
+}
+.heading {
+  margin-top: 20px;
+  color: #333;
+  font-size: 18px;
+}
+.content {
+  color: #666;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.br {
+  margin-top: 5px;
+}
+.gift {
+  width: 80%;
+  margin: 30px auto 0;
+}
+image {
+  width: 100%;
+  display: block;
+}

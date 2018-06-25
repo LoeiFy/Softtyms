@@ -48,13 +48,20 @@ scroll-view {
   height: 42px;
   padding: 1px;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, .6);
   border-radius: 50%;
+  background: rgba(0, 0, 0, .3);
+}
+.button.ready {
+  background: rgba(0, 0, 0, .6);
+}
+.button.ready image {
+  opacity: 1;
 }
 .button image {
   width: 40px;
   height: 40px;
   display: block;
+  opacity: .7;
 }
 .rate {
   transition: all .1s linear;

@@ -26,11 +26,11 @@ image {
 .title {
   position: absolute;
   color: rgba(255, 255, 255, .9);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.4;
   box-sizing: border-box;
   padding: 0 30px;
-  bottom: 30px;
+  bottom: 20px;
 }
 .excerpt {
   color: #999;
@@ -39,9 +39,8 @@ image {
   line-height: 1.6;
 }
 .time {
-  font-size: 12px;
+  font-size: 13px;
   display: block;
   margin: 10px 30px 0;
   color: #aaa;
-  font-weight: lighter;
 }

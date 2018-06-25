@@ -17,7 +17,11 @@
       <template is="html2Wxml" data="{{innerHTML}}"></template>
     </view>
   </scroll-view>
-  <view wx:if="{{post.audio}}" class="button" bindtap="onTap">
+  <view
+    wx:if="{{post.audio}}"
+    class="button {{audioReady ? 'ready' : ''}}"
+    bindtap="onTap"
+  >
     <image wx:if="{{status === 'play'}}" src="../../image/pause.png" />
     <image wx:if="{{status === 'pause'}}" src="../../image/play.png" />
   </view>
