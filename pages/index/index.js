@@ -31,7 +31,7 @@ Page({
     this.setData({ color: 'rgba(0, 0, 0, .2)' })
   },
 
-  onLoad() {
+  onShow() {
     request({
       url: '/media',
       data: {
