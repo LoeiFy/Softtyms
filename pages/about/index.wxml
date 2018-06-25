@@ -1,0 +1,23 @@
+<view>
+  <view class="heading">关 于</view>
+  <view class="content">这个小程序是 素锦 网站的小程序版本，关于 素锦 网站，是一个关于文字和图片的网站，你可以访问 isujin.com 查看</view>
+  <view class="heading">相关人员</view>
+  <view class="content">
+    @naco: 这是一个老板
+    <view class="br"></view>
+    @myhnet: 是一个大神
+    <view class="br"></view>
+    @百纸扇: 是一个绅士，同时是 素锦 网站的作者
+    <view class="br"></view>
+    @LoeiFy: <text class="error">Cannot read property 'description' of null</text>
+  </view>
+  <view class="heading">再次关于</view>
+  <view class="content">
+    这个小程序的名字是 Softtyms. 你可以在这里找到源码：github.com/LoeiFy/Softtyms. 名字来源是一首叫做 Softtyms 的，重复又单调的音乐。
+    <view class="br"></view>
+    如果遇到什么问题或者建议，可以直接联系微信: LoeiFy
+  </view>
+  <view class="gift">
+    <image mode="widthFix" src="../../image/1077037315.png" />
+  </view>
+</view>
