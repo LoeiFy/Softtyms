@@ -45,10 +45,6 @@ export class Audio {
     this.ctx.onTimeUpdate(() => this.playCall(this.ctx.currentTime, this.ctx.duration))
     this.ctx.onPlay(() => null)
     this.ctx.onCanplay(() => this.canPlay())
-    this.ctx.onError((res) => {
-      console.log(res.errMsg)
-      console.log(res.errCode)
-    })
   }
 
   set onPlay(fn) {

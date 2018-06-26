@@ -14,23 +14,18 @@
   display: flex;
   line-height: 1;
   justify-content: center;
-}
-.info image {
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: -3px;
-}
-.time {
-  margin-right: 30px;
   font-size: 13px;
 }
-.tip {
-  font-size: 13px;
+.info view {
+  margin: 0 5px;
+}
+.cover  {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
 }
 .content {
-  margin: 50px 20px 0;
+  margin: 10px 20px 0;
   padding-bottom: 50px;
 }
 scroll-view {

@@ -75,6 +75,9 @@ Page({
 
   onTap({ target }) {
     const { src } = target.dataset
-    wx.previewImage({ current: '', urls: [src] })
+    wx.previewImage({
+      current: src,
+      urls: this.data.items.map(({ media_details }) => media_details.sizes.full.source_url)
+    })
   },
 })

@@ -1,8 +1,8 @@
-<view
+<scroll-view
+  scroll-y
   class="index {{show ? 'active' : ''}}"
   style="background-image:url({{background}});"
 >
-  <view style="background-color:{{color}}" class="cover"></view>
   <image
     style="display:none"
     wx:if="{{background}}"
@@ -10,31 +10,26 @@
     bindload="onImageLoad"
   />
   <view class="links">
-    <navigator
-      url="/pages/posts/index"
-      bindtouchstart="onTouchStart"
-      bindtouchend="onTouchEnd"
-      hover-class="none"
-    >
-      文 章 <span>→</span>
-    </navigator>
-    <navigator
-      url="/pages/wallpaper/index"
-      bindtouchstart="onTouchStart"
-      bindtouchend="onTouchEnd"
-      data-num="w"
-      hover-class="none"
-    >
-      壁 纸 <span>→</span>
-    </navigator>
-    <navigator
-      url="/pages/about/index"
-      bindtouchstart="onTouchStart"
-      bindtouchend="onTouchEnd"
-      data-num="a"
-      hover-class="none"
-    >
-      关 于 <span>→</span>
-    </navigator>
+    <image mode="widthFix" class="logo" src="../../image/logo.png" />
+    <view>
+      <navigator
+        url="/pages/posts/index"
+        hover-class="none"
+      >
+        文 章 <span>→</span>
+      </navigator>
+      <navigator
+        url="/pages/wallpaper/index"
+        hover-class="none"
+      >
+        壁 纸 <span>→</span>
+      </navigator>
+      <navigator
+        url="/pages/about/index"
+        hover-class="none"
+      >
+        关 于 <span>→</span>
+      </navigator>
+    </view>
   </view>
-</view>
+</scroll-view>

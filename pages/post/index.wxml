@@ -3,15 +3,11 @@
   <scroll-view scroll-y>
     <text class="title">{{post.title.rendered}}</text>
     <view class="info">
-      <view class="time">
-        <image src="../../image/time.png" />
-        {{post.date}}
-      </view>
-      <view class="tip">
-        <image src="../../image/tip.png" />
-        {{post.content.total}} 字 {{post.content.time}} 分钟
-      </view>
+      <view>时间 {{post.date}}</view>
+      <view>字数 {{post.content.total}}</view>
+      <view>大概 {{post.content.time}} 分</view>
     </view>
+    <image mode="widthFix" class="cover" src="https://isujin.com/wp-content/themes/Diaspora/timthumb/timthumb.php?src={{post.thumbnail}}" />
     <view class="content">
       <import src="../../helper/html2wxml/html2wxml.wxml"/>
       <template is="html2Wxml" data="{{innerHTML}}"></template>
