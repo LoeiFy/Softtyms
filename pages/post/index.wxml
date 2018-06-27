@@ -5,7 +5,7 @@
     <view class="info">
       <view>时间 {{post.date}}</view>
       <view>字数 {{post.content.total}}</view>
-      <view>大概 {{post.content.time}} 分</view>
+      <view>大概 {{post.content.time}} 分钟</view>
     </view>
     <image mode="widthFix" class="cover" src="https://isujin.com/wp-content/themes/Diaspora/timthumb/timthumb.php?src={{post.thumbnail}}" />
     <view class="content">

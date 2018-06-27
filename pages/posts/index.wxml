@@ -8,11 +8,7 @@
       .split('[&hellip;]')
       .join('')
   }
-  var timer = function(text) {
-    return text.split('T')[0]
-  }
   module.exports.unescape = unescape
-  module.exports.timer = timer
 </wxs>
 
 <scroll-view
@@ -33,7 +29,6 @@
       <image mode="widthFix" src="https://isujin.com/wp-content/themes/Diaspora/timthumb/timthumb.php?src={{item.thumbnail}}" />
       <text class="title">{{item.title.rendered}}</text>
     </view>
-    <text class="time">{{helper.timer(item.date)}}</text>
     <view class="excerpt">{{helper.unescape(item.excerpt.rendered)}}</view>
   </navigator>
 </scroll-view>
