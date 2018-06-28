@@ -8,7 +8,7 @@ export default function (params) {
     method = 'GET',
   } = params
 
-  loading()
+  loading.call(data.page)
 
   Object.keys(data).forEach((key) => {
     if (data[key] === null || data[key] === undefined) {

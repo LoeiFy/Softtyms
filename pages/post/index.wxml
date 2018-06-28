@@ -1,6 +1,10 @@
 <view wx:if="{{post.id}}" class="post">
   <view style="width:{{current/total*100}}%" class="rate"></view>
-  <scroll-view scroll-y>
+  <scroll-view
+    scroll-y
+    enable-back-to-top
+    scroll-with-animation
+  >
     <text class="title">{{post.title.rendered}}</text>
     <view class="info">
       <view>时间 {{post.date}}</view>

@@ -1,6 +1,8 @@
 import request from '../../helper/request'
 import { setState, store } from '../../helper/wx'
 
+const filter = items => items.filter(({ post }) => post)
+
 Page({
   data: {
     items: [],
@@ -32,7 +34,7 @@ Page({
       page: this.page,
       per_page: 20,
     }})
-      .then(({ data }) => this.setState({ items: current.concat(data) }))
+      .then(({ data }) => this.setState({ items: current.concat(filter(data)) }))
       .then(({ items }) => store.set('wallpapers', items))
       .then(() => store.set('wp_page', this.page))
       .then(() => store.set('wp_total', this.totalPage))
@@ -68,7 +70,7 @@ Page({
     request({ url: '/media', data: { media_type: 'image', per_page: 20 } })
       .then(({ data: items, header }) => {
         this.totalPage = Number(header['X-WP-TotalPages'])
-        return this.setState({ items })
+        return this.setState({ items: filter(items) })
       })
       .then(({ items }) => store.set('wallpapers', items))
   },

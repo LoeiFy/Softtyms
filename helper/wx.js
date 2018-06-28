@@ -19,14 +19,17 @@ export const toast = (title) => {
   })
 }
 
-export const loading = (show = true) => {
+export const loading = function(show = true) {
   if (show) {
-    return wx.showLoading({
-      title: '',
-      mask: true,
-    })
+    if (this > 1) {
+      wx.showNavigationBarLoading()
+    } else {
+      wx.showLoading({ mask: true })
+    }
+    return
   }
-  return wx.hideLoading()
+  wx.hideLoading()
+  wx.hideNavigationBarLoading()
 }
 
 export const setState = function(data) {
