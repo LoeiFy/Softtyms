@@ -1,16 +1,3 @@
-<wxs module="helper">
-  var oddEven = function(items) {
-    var odd = items.filter(function (item, i) {
-      return i % 2
-    })
-    var even = items.filter(function (item, i) {
-      return !(i % 2)
-    })
-    return [odd, even]
-  }
-  module.exports.oddEven = oddEven
-</wxs>
-
 <scroll-view
   scroll-y
   scroll-with-animation
@@ -21,7 +8,7 @@
 >
   <view class="main">
     <view
-      wx:for="{{helper.oddEven(items)}}"
+      wx:for="{{items}}"
       wx:key="index"
     >
       <image
