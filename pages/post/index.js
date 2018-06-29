@@ -90,15 +90,12 @@ Page({
     if (posts[id]) {
       this.setState({ post: posts[id], innerHTML: posts[id].innerHTML })
       this.initAudio()
-      wx.setNavigationBarTitle({ title: posts[id].title.rendered })
       return
     }
 
     request({ url: `/posts/${id}` })
       .then(({ data: post }) => {
         const { rendered } = post.content
-
-        wx.setNavigationBarTitle({ title: post.title.rendered })
 
         post.content.rendered = clearText(rendered)
         post.content = { ...word(rendered), ...post.content }

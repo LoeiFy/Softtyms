@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/posts/index",
     "pages/post/index",
     "pages/about/index",
@@ -8,8 +7,28 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#eee",
-    "navigationBarTitleText": "素锦",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "素 锦",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "position": "top",
+    "backgroundColor": "#fff",
+    "selectedColor": "#0076f9",
+    "color": "#606e82",
+    "list": [
+      {
+        "pagePath": "pages/posts/index",
+        "text": "文 章"
+      },
+      {
+        "pagePath": "pages/wallpaper/index",
+        "text": "壁 纸"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "text": "关 于"
+      }
+    ]
   }
 }
