@@ -4,7 +4,6 @@ import { setState, store } from '../../helper/wx'
 Page({
   data: {
     items: [],
-    scrollTop: 0,
   },
 
   items: [],
@@ -13,11 +12,9 @@ Page({
 
   page: 1,
 
-  loading: false,
-
   totalPage: 0,
 
-  timer: null,
+  loading: false,
 
   getRow(data) {
     const items = data.filter(({ post }) => post)
@@ -28,7 +25,7 @@ Page({
 
     items.forEach((item) => {
       const { height } = item.media_details.sizes.thumbnail
-      if (leftHeight >= rightHeight) {
+      if (leftHeight > rightHeight) {
         right.push(item)
         rightHeight += height
       } else {
@@ -58,45 +55,16 @@ Page({
         return Promise.resolve(this.items)
       })
       .then((items) => this.setState({ items: this.getRow(items) }))
-      .then(({ items }) => store.set('wallpapers', items))
-      .then(() => store.set('wp_page', this.page))
-      .then(() => store.set('wp_total', this.totalPage))
       .then(() => this.loading = false)
   },
 
-  onScroll({ detail }) {
-    clearTimeout(this.timer)
-    this.timer = null
-    this.timer = setTimeout(() => {
-      store.set('wpScrollTop', detail.scrollTop)
-    }, 300)
-  },
-
-  onShow() {
-    const items = store.get('wallpapers')
-    const page = store.get('wp_page')
-    const totalPage = store.get('wp_total')
-    const wpScrollTop = store.get('wpScrollTop')
-
-    if (items.length) {
-      this.page = page
-      this.totalPage = totalPage
-      this.setState({ items })
-
-      setTimeout(() => {
-        this.setState({ scrollTop: wpScrollTop })
-      }, 300)
-
-      return
-    }
-
+  onLoad() {
     request({ url: '/media', data: { media_type: 'image', per_page: 20 } })
       .then(({ data: items, header }) => {
         this.totalPage = Number(header['X-WP-TotalPages'])
         this.items = items
-        return this.setState({ items: this.getRow(items) })
+        this.setState({ items: this.getRow(items) })
       })
-      .then(({ items }) => store.set('wallpapers', items))
   },
 
   onTap({ target }) {
