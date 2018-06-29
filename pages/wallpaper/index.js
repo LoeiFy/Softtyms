@@ -103,7 +103,9 @@ Page({
     const { src } = target.dataset
     wx.previewImage({
       current: src,
-      urls: this.items.map(({ media_details }) => media_details.sizes.full.source_url)
+      urls: this.items
+        .filter(({ post }) => post)
+        .map(({ media_details }) => media_details.sizes.full.source_url)
     })
   },
 })
