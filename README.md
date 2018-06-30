@@ -2,6 +2,8 @@
 
 Softtyms 是一个基于 WordPress [REST API](https://developer.wordpress.org/rest-api/) 的微信小程序
 
+![gh_7107a625fda9_344](https://user-images.githubusercontent.com/2193211/42122301-3b0b4ba4-7c72-11e8-80a0-f7b62ae03f9b.jpg)
+
 ### 开发相关
 
 修改 `host.sample.js` 为 `host.js`，填入你的 WordPress 网站地址
