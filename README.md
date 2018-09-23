@@ -12,9 +12,23 @@ Softtyms 是一个基于 WordPress [REST API](https://developer.wordpress.org/re
 export default 'http://127.0.0.1:8000'
 ```
 
+需要修改图片地址
+
+```html
+<!-- posts/index.wxml -->
+<!-- 将 src 值换为 {{item.thumbnail}} -->
+<image mode="widthFix" src="https://isujin.com/wp-content/themes/Diaspora/timthumb/timthumb.php?src={{item.thumbnail}}" />
+```
+
+```html
+<!-- post/index.wxml -->
+<!-- 将 src 值换为 {{post.thumbnail}} -->
+<image mode="widthFix" class="cover" src="https://isujin.com/wp-content/themes/Diaspora/timthumb/timthumb.php?src={{post.thumbnail}}" />
+```
+
 添加项目到微信小程序开发工具即可运行
 
-### WordPress 相关
+### WordPress 设置
 
 需要用到的 API 接口
 
@@ -22,7 +36,7 @@ export default 'http://127.0.0.1:8000'
 - /wp/v2/posts/(?P<id>[\d]+)
 - /wp/v2/media
 
-**可选** 可以在主题 `function.php` 添加以下代码减少 API 数据（php 我不大会）
+在主题 `function.php` 添加以下代码（php 我不大会）
 
 ```php
 function dw_rest_prepare_post( $data, $post, $request ) {
@@ -64,20 +78,20 @@ function dw_rest_prepare_post( $data, $post, $request ) {
 	unset( $_data['slug'] );
 	unset( $_data['type'] );
 	unset( $_data['author'] );
-    unset( $_data['categories'] );
+  unset( $_data['categories'] );
 	unset( $_data['tags'] );
 	unset( $_data['status'] );
 
-    $data->remove_link( 'collection' );
-    $data->remove_link( 'self' );
-    $data->remove_link( 'about' );
-    $data->remove_link( 'author' );
-    $data->remove_link( 'replies' );
-    $data->remove_link( 'version-history' );
-    $data->remove_link( 'https://api.w.org/featuredmedia' );
-    $data->remove_link( 'https://api.w.org/attachment' );
-    $data->remove_link( 'https://api.w.org/term' );
-    $data->remove_link( 'curies' );
+  $data->remove_link( 'collection' );
+  $data->remove_link( 'self' );
+  $data->remove_link( 'about' );
+  $data->remove_link( 'author' );
+  $data->remove_link( 'replies' );
+  $data->remove_link( 'version-history' );
+  $data->remove_link( 'https://api.w.org/featuredmedia' );
+  $data->remove_link( 'https://api.w.org/attachment' );
+  $data->remove_link( 'https://api.w.org/term' );
+  $data->remove_link( 'curies' );
 
 	$data->data = $_data;
 
@@ -89,11 +103,11 @@ function dw_rest_prepare_attachment( $data, $post, $request ) {
 
 	$_data = $data->data;
 
-    $data->remove_link( 'collection' );
-    $data->remove_link( 'self' );
-    $data->remove_link( 'about' );
-    $data->remove_link( 'author' );
-    $data->remove_link( 'replies' );
+  $data->remove_link( 'collection' );
+  $data->remove_link( 'self' );
+  $data->remove_link( 'about' );
+  $data->remove_link( 'author' );
+  $data->remove_link( 'replies' );
 
 	unset( $_data['date'] );
 	unset( $_data['date_gmt'] );
