@@ -60,7 +60,9 @@ scroll-view {
 }
 .rate {
   transition: all .1s linear;
-  height: 100vh;
+  height: 2px;
   position: absolute;
-  border-right: 1px solid #efefef;
+  top: 0;
+  z-index: 10;
+  background: #666;
 }

@@ -5,6 +5,10 @@
       .join('')
       .split('</p>')
       .join('')
+      .split('<br />')
+      .join('')
+      .split('&nbsp;')
+      .join('')
       .split('[&hellip;]')
       .join('')
   }
@@ -16,7 +20,6 @@
   enable-back-to-top
   scroll-with-animation
   bindscrolltolower="onScrollBottom"
-  bindscroll="onScroll"
   scroll-top="{{scrollTop}}"
 >
   <navigator

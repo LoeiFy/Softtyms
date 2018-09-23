@@ -3,7 +3,6 @@
   scroll-with-animation
   enable-back-to-top
   bindscrolltolower="onScrollBottom"
-  bindscroll="onScroll"
   scroll-top="{{scrollTop}}"
 >
   <view class="main">
