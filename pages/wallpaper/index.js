@@ -72,7 +72,7 @@ Page({
     wx.previewImage({
       current: src,
       urls: this.items
-        .filter(({ post }) => post)
+        //.filter(({ post }) => post)
         .map(({ media_details }) => media_details.sizes.full.source_url)
     })
   },
