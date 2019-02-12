@@ -1,6 +1,6 @@
 Page({
   data: {
-    src: 'https://isujin.com/wp-content/uploads/2018/06/1077037315.png',
+    src: 'https://i.loli.net/2019/02/12/5c627e10e0179.png',
   },
 
   onTap() {

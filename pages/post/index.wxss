@@ -2,7 +2,7 @@
 
 .title {
   color: #333;
-  font-size: 24px;
+  font-size: 22px;
   margin: 0 30px 20px;
   text-align: center;
   line-height: 1.5;

@@ -17,7 +17,7 @@ Page({
   loading: false,
 
   getRow(data) {
-    const items = data.filter(({ post }) => post)
+    const items = data//.filter(({ post }) => post)
     const left = []
     const right = []
     let leftHeight = 0
