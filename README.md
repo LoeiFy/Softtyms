@@ -2,6 +2,14 @@
 
 Softtyms 是一个基于 WordPress [REST API](https://developer.wordpress.org/rest-api/) 的微信小程序
 
+<br />
+
+> 由于域名即将失效，网站不继续维护，看不了预览，只能看截图
+>
+> https://github.com/LoeiFy/Softtyms/tree/master/shots
+
+<br />
+
 ![gh_7107a625fda9_344](https://user-images.githubusercontent.com/2193211/42122301-3b0b4ba4-7c72-11e8-80a0-f7b62ae03f9b.jpg)
 
 ### 开发相关
